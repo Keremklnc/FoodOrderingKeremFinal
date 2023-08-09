@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <data>
+        <variable
+            name="foodData"
+            type="com.ahmetcanerbasdogan.foodorderingapp_android_kotlin.data.entity.Foods" />
+    </data>
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#F4E2E2"
+        android:layout_margin="10dp">
+
+    <LinearLayout
+        android:id="@+id/foodRowLinearLayot"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="8dp">
+
+                <ImageView
+                    android:id="@+id/ivListImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:srcCompat="@drawable/ic_launcher_background" />
+
+                <TextView
+                    android:id="@+id/tvListName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@{foodData.foodName}"
+                    android:textColor="#FF0000"
+                    android:textSize="20sp"
+                    app:layout_constraintEnd_toEndOf="@+id/ivListImage"
+                    app:layout_constraintStart_toStartOf="@+id/ivListImage"
+                    app:layout_constraintTop_toBottomOf="@+id/ivListImage"
+                    tools:text="Yemek Adı" />
+
+                <TextView
+                    android:id="@+id/basketFoodUnitPriceTextView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text='@{"Fiyat: " + foodData.foodPrice + " ₺"}'
+                    android:textColor="#1900FF"
+                    android:textSize="16sp"
+                    app:layout_constraintEnd_toEndOf="@+id/tvListName"
+                    app:layout_constraintStart_toStartOf="@+id/tvListName"
+                    app:layout_constraintTop_toBottomOf="@+id/tvListName"
+                    tools:text="Fiyatı: 10 ₺" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+</layout>
